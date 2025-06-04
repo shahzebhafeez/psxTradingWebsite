@@ -1,99 +1,81 @@
 import React from 'react';
 import { Container, Typography, Grid, Card, CardContent, Button, Box } from '@mui/material';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import { Link } from 'react-router-dom';
 
 const Products = () => {
   const products = [
     {
       title: 'Stocks',
-      icon: <TrendingUpIcon className="text-4xl text-primary" />,
-      description: 'Trade stocks from major exchanges with real-time market data and advanced trading tools.',
+      description: 'Trade stocks of leading companies listed on the Pakistan Stock Exchange (PSX). Access real-time market data, advanced trading tools, and expert insights to make informed investment decisions.',
       features: [
-        'Real-time market data',
-        'Advanced trading tools',
-        'Portfolio tracking',
-        'Market analysis',
-      ],
+        'Real-time market data and analysis',
+        'Advanced trading tools and charts',
+        'Expert market insights and research',
+        'Secure and reliable trading platform'
+      ]
     },
     {
       title: 'Sukuks',
-      icon: <AccountBalanceIcon className="text-4xl text-primary" />,
-      description: 'Invest in Islamic financial instruments with our Shariah-compliant trading platform.',
+      description: 'Invest in Shariah-compliant Sukuks (Islamic bonds) that provide regular income while adhering to Islamic finance principles. Our platform offers a wide range of Sukuk options with competitive returns.',
       features: [
-        'Shariah-compliant investments',
-        'Diverse sukuk options',
-        'Regular income streams',
-        'Risk management tools',
-      ],
-    },
+        'Shariah-compliant investment options',
+        'Regular income distribution',
+        'Diverse Sukuk portfolio',
+        'Expert Islamic finance guidance'
+      ]
+    }
   ];
 
   return (
-    <div className="bg-gray-50 py-20">
-      <Container maxWidth="lg">
-        <Typography variant="h2" className="text-center font-bold mb-4 text-gray-800">
-          Our Products
-        </Typography>
-        <Typography variant="h5" className="text-center mb-12 text-gray-600">
-          Choose from our range of investment products
-        </Typography>
+    <Container className="py-12">
+      <Typography variant="h2" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4">
+        Our Products
+      </Typography>
+      <Typography variant="h5" className="text-lg sm:text-xl md:text-2xl text-gray-600 text-center mb-12">
+        Discover our range of investment products designed for the Pakistani market
+      </Typography>
 
-        <Grid container spacing={6}>
-          {products.map((product) => (
-            <Grid item xs={12} md={6} key={product.title}>
-              <Card className="h-full hover:shadow-lg transition-shadow duration-300">
-                <CardContent>
-                  <Box className="text-center mb-6">
-                    {product.icon}
-                    <Typography variant="h4" className="font-bold mt-4 mb-2">
-                      {product.title}
-                    </Typography>
-                    <Typography variant="body1" color="textSecondary" className="mb-6">
-                      {product.description}
-                    </Typography>
-                  </Box>
-
-                  <ul className="space-y-3 mb-8">
-                    {product.features.map((feature) => (
-                      <li key={feature} className="flex items-center">
-                        <Box className="w-2 h-2 bg-primary rounded-full mr-3" />
-                        <Typography variant="body1">{feature}</Typography>
+      <Grid container spacing={6}>
+        {products.map((product, index) => (
+          <Grid item xs={12} md={6} key={index}>
+            <Card className="h-full flex flex-col">
+              <CardContent className="flex-grow">
+                <Typography variant="h4" className="text-2xl sm:text-3xl font-bold mb-4">
+                  {product.title}
+                </Typography>
+                <Typography variant="body1" className="text-base sm:text-lg text-gray-600 mb-6">
+                  {product.description}
+                </Typography>
+                <Box className="mb-6">
+                  <Typography variant="h6" className="text-lg sm:text-xl font-semibold mb-3">
+                    Key Features:
+                  </Typography>
+                  <ul className="list-disc list-inside space-y-2">
+                    {product.features.map((feature, idx) => (
+                      <li key={idx} className="text-base sm:text-lg text-gray-600">
+                        {feature}
                       </li>
                     ))}
                   </ul>
-
-                  <Box className="text-center">
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      size="large"
-                      className="bg-primary hover:bg-secondary"
-                    >
-                      Learn More
-                    </Button>
-                  </Box>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-
-        <Box className="text-center mt-16">
-          <Typography variant="h5" className="mb-6 text-gray-800">
-            Ready to start investing?
-          </Typography>
-          <Button
-            variant="contained"
-            color="primary"
-            size="large"
-            className="bg-primary hover:bg-secondary"
-          >
-            Open an Account
-          </Button>
-        </Box>
-      </Container>
-    </div>
+                </Box>
+                <Box className="flex justify-center">
+                  <Button
+                    component={Link}
+                    to="/coming-soon"
+                    variant="contained"
+                    color="primary"
+                    size="large"
+                    className="w-full sm:w-auto"
+                  >
+                    Learn More
+                  </Button>
+                </Box>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
   );
 };
 

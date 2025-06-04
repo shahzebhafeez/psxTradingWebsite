@@ -12,24 +12,34 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 const FAQs = () => {
   const faqs = [
     {
-      question: 'What is Hawk Standard?',
+      question: 'What is Desi Trader?',
       answer:
-        'Hawk Standard is a modern trading platform that enables users to invest in stocks and other financial instruments. We provide a secure, user-friendly interface for both beginners and experienced traders.',
+        'Desi Trader is a comprehensive trading platform that provides access to various financial markets, including stocks, forex, and commodities. We offer advanced trading tools, educational resources, and a user-friendly interface for both beginners and experienced traders.',
     },
     {
-      question: 'How do I get started with Hawk Standard?',
+      question: 'How do I get started with Desi Trader?',
       answer:
-        'Getting started is easy! Simply create an account, complete the verification process, deposit funds, and you can begin trading. Our platform provides comprehensive guides and support to help you get started.',
+        'Getting started is easy! Simply create an account, complete the verification process, and fund your account. We provide step-by-step guides and tutorials to help you begin your trading journey.',
     },
     {
-      question: 'What are the fees for trading?',
+      question: 'What trading instruments are available on Desi Trader?',
       answer:
-        'We offer competitive trading fees that vary based on the type of transaction and account type. Please visit our pricing page for detailed information about our fee structure.',
+        'Desi Trader offers a wide range of trading instruments including stocks, forex pairs, commodities, indices, and cryptocurrencies. Our platform is constantly expanding to provide more trading opportunities.',
     },
     {
-      question: 'Is my money safe with Hawk Standard?',
+      question: 'Is Desi Trader suitable for beginners?',
       answer:
-        'Yes, we take security very seriously. We implement industry-standard security measures, including encryption and two-factor authentication, to protect your funds and personal information.',
+        'Yes! Desi Trader is designed to accommodate traders of all experience levels. We provide comprehensive educational resources, demo accounts, and a supportive community to help beginners learn and grow.',
+    },
+    {
+      question: 'What are the trading fees on Desi Trader?',
+      answer:
+        'Our fee structure is transparent and competitive. We charge a small commission on trades and may have additional fees for specific services. You can find detailed information about our fees in the pricing section.',
+    },
+    {
+      question: 'How secure is my account on Desi Trader?',
+      answer:
+        'Security is our top priority. We implement industry-standard security measures including two-factor authentication, encryption, and regular security audits to protect your account and personal information.',
     },
     {
       question: 'What trading tools are available?',
@@ -60,7 +70,7 @@ const FAQs = () => {
           Frequently Asked Questions
         </Typography>
         <Typography variant="h5" className="text-center mb-12 text-gray-600">
-          Find answers to common questions about our platform
+          Find answers to common questions about Desi Trader and our trading platform
         </Typography>
 
         <Box className="max-w-3xl mx-auto">

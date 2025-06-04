@@ -1,160 +1,113 @@
 import React from 'react';
-import { Container, Typography, Grid, Card, CardContent, Box, Avatar } from '@mui/material';
-import BusinessIcon from '@mui/icons-material/Business';
-import SecurityIcon from '@mui/icons-material/Security';
-import PeopleIcon from '@mui/icons-material/People';
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import { Container, Typography, Grid, Card, CardContent, Box } from '@mui/material';
 
 const About = () => {
-  const team = [
+  const leadership = [
     {
-      name: 'John Doe',
-      position: 'CEO & Founder',
-      image: '/team/john-doe.jpg',
+      name: 'Asim',
+      role: 'CEO & Founder',
+      description: 'Visionary leader with extensive experience in financial markets and technology.'
     },
     {
-      name: 'Jane Smith',
-      position: 'Head of Trading',
-      image: '/team/jane-smith.jpg',
+      name: 'Shahzeb Hafeez',
+      role: 'CTO',
+      description: 'Technology expert driving innovation in trading platforms and financial solutions.'
     },
     {
-      name: 'Mike Johnson',
-      position: 'Chief Technology Officer',
-      image: '/team/mike-johnson.jpg',
+      name: 'Abdullah Asif',
+      role: 'Head of Customer Success',
+      description: 'Dedicated to ensuring exceptional customer experience and satisfaction.'
     },
     {
-      name: 'Sarah Williams',
-      position: 'Head of Customer Success',
-      image: '/team/sarah-williams.jpg',
-    },
-  ];
-
-  const values = [
-    {
-      icon: <BusinessIcon className="text-4xl text-primary" />,
-      title: 'Innovation',
-      description: 'Constantly pushing boundaries to provide the best trading experience.',
-    },
-    {
-      icon: <SecurityIcon className="text-4xl text-primary" />,
-      title: 'Security',
-      description: 'Your security is our top priority. We implement the highest standards of protection.',
-    },
-    {
-      icon: <PeopleIcon className="text-4xl text-primary" />,
-      title: 'Customer First',
-      description: 'We put our customers at the heart of everything we do.',
-    },
-    {
-      icon: <EmojiEventsIcon className="text-4xl text-primary" />,
-      title: 'Excellence',
-      description: 'Committed to delivering excellence in every aspect of our service.',
-    },
+      name: 'Ahsanullah',
+      role: 'Head of Trading',
+      description: 'Expert in market analysis and trading strategies with years of experience.'
+    }
   ];
 
   return (
-    <div className="bg-gray-50">
+    <Container className="py-12">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-secondary text-white py-20">
-        <Container maxWidth="lg">
-          <div className="text-center">
-            <Typography variant="h2" className="font-bold mb-4">
-              About Hawk Standard
-            </Typography>
-            <Typography variant="h5" className="mb-8">
-              Empowering investors with innovative trading solutions
-            </Typography>
-          </div>
-        </Container>
-      </section>
+      <Box className="flex flex-col items-center justify-center mb-16">
+        <Typography variant="h2" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center">
+          About Desi Trader
+        </Typography>
+        <Typography variant="h5" className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-3xl text-center">
+          Empowering Pakistani investors with innovative trading solutions and expert market insights
+        </Typography>
+      </Box>
 
       {/* Mission Section */}
-      <section className="py-20">
-        <Container maxWidth="lg">
-          <Grid container spacing={6}>
-            <Grid item xs={12} md={6}>
-              <Typography variant="h3" className="font-bold mb-6 text-gray-800">
-                Our Mission
-              </Typography>
-              <Typography variant="body1" className="text-gray-600 mb-4">
-                At Hawk Standard, we are committed to democratizing access to financial markets
-                and empowering individuals to take control of their financial future. Our
-                platform combines cutting-edge technology with user-friendly design to make
-                trading accessible to everyone.
-              </Typography>
-              <Typography variant="body1" className="text-gray-600">
-                We believe in transparency, security, and innovation, ensuring that our
-                users have the tools and resources they need to make informed investment
-                decisions.
-              </Typography>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <img
-                src="/about/mission.jpg"
-                alt="Our Mission"
-                className="w-full h-auto rounded-lg shadow-lg"
-              />
-            </Grid>
+      <Box className="mb-16">
+        <Typography variant="h3" className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12">
+          Our Mission
+        </Typography>
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={4}>
+            <Card className="h-full">
+              <CardContent>
+                <Typography variant="h5" className="font-bold mb-4">
+                  Innovation
+                </Typography>
+                <Typography variant="body1" className="text-gray-600">
+                  Continuously developing cutting-edge trading tools and platforms to enhance the trading experience.
+                </Typography>
+              </CardContent>
+            </Card>
           </Grid>
-        </Container>
-      </section>
+          <Grid item xs={12} md={4}>
+            <Card className="h-full">
+              <CardContent>
+                <Typography variant="h5" className="font-bold mb-4">
+                  Education
+                </Typography>
+                <Typography variant="body1" className="text-gray-600">
+                  Empowering traders with knowledge and resources to make informed investment decisions.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Card className="h-full">
+              <CardContent>
+                <Typography variant="h5" className="font-bold mb-4">
+                  Trust
+                </Typography>
+                <Typography variant="body1" className="text-gray-600">
+                  Building long-term relationships through transparency, security, and reliable service.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+      </Box>
 
-      {/* Values Section */}
-      <section className="py-20 bg-white">
-        <Container maxWidth="lg">
-          <Typography variant="h3" className="text-center font-bold mb-12 text-gray-800">
-            Our Values
-          </Typography>
-          <Grid container spacing={4}>
-            {values.map((value) => (
-              <Grid item xs={12} sm={6} md={3} key={value.title}>
-                <Card className="h-full hover:shadow-lg transition-shadow duration-300">
-                  <CardContent className="text-center">
-                    <Box className="mb-4">{value.icon}</Box>
-                    <Typography variant="h5" className="font-semibold mb-2">
-                      {value.title}
-                    </Typography>
-                    <Typography variant="body1" color="textSecondary">
-                      {value.description}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </section>
-
-      {/* Team Section */}
-      <section className="py-20">
-        <Container maxWidth="lg">
-          <Typography variant="h3" className="text-center font-bold mb-12 text-gray-800">
-            Our Leadership Team
-          </Typography>
-          <Grid container spacing={4}>
-            {team.map((member) => (
-              <Grid item xs={12} sm={6} md={3} key={member.name}>
-                <Card className="h-full hover:shadow-lg transition-shadow duration-300">
-                  <CardContent className="text-center">
-                    <Avatar
-                      src={member.image}
-                      alt={member.name}
-                      className="w-32 h-32 mx-auto mb-4"
-                    />
-                    <Typography variant="h6" className="font-semibold">
-                      {member.name}
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary">
-                      {member.position}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </section>
-    </div>
+      {/* Leadership Section */}
+      <Box>
+        <Typography variant="h3" className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12">
+          Our Leadership
+        </Typography>
+        <Grid container spacing={4}>
+          {leadership.map((member, index) => (
+            <Grid item xs={12} sm={6} md={3} key={index}>
+              <Card className="h-full">
+                <CardContent>
+                  <Typography variant="h5" className="font-bold mb-2">
+                    {member.name}
+                  </Typography>
+                  <Typography variant="subtitle1" className="text-primary mb-3">
+                    {member.role}
+                  </Typography>
+                  <Typography variant="body2" className="text-gray-600">
+                    {member.description}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+    </Container>
   );
 };
 
