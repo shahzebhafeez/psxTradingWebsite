@@ -1,10 +1,27 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { AppBar, Toolbar, IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
+import { Link, useLocation } from 'react-router-dom';
+import { 
+  AppBar, 
+  Toolbar, 
+  Button, 
+  Box, 
+  Container,
+  useTheme,
+  useMediaQuery,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText
+} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const location = useLocation();
 
   const menuItems = [
     { text: 'Home', path: '/' },
@@ -22,7 +39,14 @@ const Navbar = () => {
   const drawer = (
     <List>
       {menuItems.map((item) => (
-        <ListItem button component={Link} to={item.path} key={item.text} onClick={handleDrawerToggle}>
+        <ListItem 
+          button 
+          component={Link} 
+          to={item.path} 
+          key={item.text} 
+          onClick={handleDrawerToggle}
+          selected={location.pathname === item.path}
+        >
           <ListItemText primary={item.text} />
         </ListItem>
       ))}
@@ -30,36 +54,63 @@ const Navbar = () => {
   );
 
   return (
-    <AppBar position="sticky" className="bg-white shadow-md">
-      <Toolbar className="relative">
-        <div className="absolute left-4">
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            className="text-gray-800"
-          >
-            <MenuIcon />
-          </IconButton>
-        </div>
-
-        <div className="w-full flex justify-center">
-          <Link to="/" className="text-center">
-            <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-wider whitespace-nowrap px-4">
+    <AppBar position="sticky" className="bg-white shadow-md" color="default">
+      <Container maxWidth="lg">
+        <Toolbar className="px-0">
+          {/* Logo Section */}
+          <Link to="/" className="flex items-center space-x-2 no-underline">
+            <TrendingUpIcon className="text-primary text-3xl" />
+            <span className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               Desi Trader
             </span>
           </Link>
-        </div>
-      </Toolbar>
 
+          {/* Desktop Menu */}
+          {!isMobile && (
+            <Box className="flex-grow flex justify-center space-x-1">
+              {menuItems.map((item) => (
+                <Button
+                  key={item.text}
+                  component={Link}
+                  to={item.path}
+                  className={`px-4 py-2 rounded-md transition-colors duration-200 ${
+                    location.pathname === item.path
+                      ? 'bg-primary text-white'
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  {item.text}
+                </Button>
+              ))}
+            </Box>
+          )}
+
+          {/* Mobile Menu Button */}
+          {isMobile && (
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="end"
+              onClick={handleDrawerToggle}
+              className="ml-auto text-gray-800"
+            >
+              <MenuIcon />
+            </IconButton>
+          )}
+        </Toolbar>
+      </Container>
+
+      {/* Mobile Drawer */}
       <Drawer
         variant="temporary"
-        anchor="left"
+        anchor="right"
         open={mobileOpen}
         onClose={handleDrawerToggle}
         ModalProps={{
           keepMounted: true,
+        }}
+        classes={{
+          paper: 'w-64',
         }}
       >
         {drawer}

@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import TickerTapeWidget from './components/TickerTape';
 import Home from './pages/Home';
 import About from './pages/About';
 import Products from './pages/Products';
@@ -30,6 +31,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="min-h-screen flex flex-col">
         <Navbar />
+        <TickerTapeWidget />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
