@@ -70,6 +70,27 @@ const Home = () => {
         </Container>
       </section>
 
+      {/* Trading View Attribution */}
+      <Typography 
+        variant="h6" 
+        className="text-center py-4 font-bold text-primary"
+        sx={{ 
+          textShadow: '0px 1px 2px rgba(0,0,0,0.1)',
+          letterSpacing: '0.5px',
+          backgroundColor: 'rgba(26, 35, 126, 0.05)'
+        }}
+      >
+        Charts are powered by{' '}
+        <a 
+          href="https://www.tradingview.com/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-primary hover:text-secondary transition-colors duration-200 underline"
+        >
+          Trading View
+        </a>
+      </Typography>
+
       {/* Market Overview Section */}
       <section className="py-8 sm:py-12">
         <Container maxWidth="lg">
